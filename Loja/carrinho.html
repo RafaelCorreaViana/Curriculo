@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Scada:ital,wght@0,400;0,700;1,400;1,700&family=Scheherazade:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        
+        body{
+            margin: 0 0 0 0;
+        }
+
+        header{
+            display: flex;
+            background: linear-gradient(90deg, rgba(171, 202, 243, 0.67) 13.54%, rgba(255, 182, 193, 0.85) 96.35%);
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #seta{
+            position: absolute;
+            left: 25px;
+        }
+
+        #logo{       
+            
+        }
+
+        h1{
+            margin-top: 6px;
+            text-align: center;
+            font-family: Saira Extra Condensed;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 57px;
+            letter-spacing: 0.08em;
+            color: rgba(21, 94, 190, 0.9);
+        }
+        
+        .produto{
+            display: flex;
+            margin: 0 auto;
+            width: 80%;
+            border: solid #ABCAF3;
+            flex: 1 1 1;
+            height: 125px;
+        }
+
+        h2{
+            margin-top: 13px;
+            font-family: Scada;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            color: #000000;
+        }
+        
+        #preco{
+            margin-top: 10px;
+            font-family: Scheherazade;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 27px;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+
+        #heart{
+            margin-left: 100px;
+            margin-top: 13px;
+        }
+
+        #qnt{
+            margin-left: 80px;
+            margin-top: 52px;
+        }
+
+        #fnlz{
+            margin: 0 auto;
+            width: 325px;
+            margin-top: 47px;
+            background: rgba(255, 182, 193, 0.85);
+            border-radius: 24px;
+            text-align: center;
+            font-family: Saira Extra Condensed;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            letter-spacing: 0.08em;
+            color: rgba(21, 94, 190, 0.9);
+        }
+
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img id="seta" src="img/leftarrow.png" alt="">
+        <img id="logo" src="img/logozinha2.png" alt="">
+    </header>
+    
+    <section id="produtos">
+        <h1>Carrinho de compras</h1>
+        <div class="produto">
+            <img src="img/stich.png" alt="">
+            <div>
+                <h2>Stich Pelúcia</h2>
+                <p id="preco">Preço: R$50,00</p>
+                <img id="star" src="img/estrelinhas.png" alt="">
+            </div>
+            <div>
+                <img id="heart" src="img/heart.png" alt="">
+                <img id="qnt" src="img/qnt.png" alt="">
+            </div>
+        </div>
+    </section>
+    <section>
+        <a href="#"><p id="fnlz">Finalizar Compra</p></a>
+    </section>
+</body>
+</html>

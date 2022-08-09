@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de temperaturas</title>
+    <style>
+        html{
+            background-color: #fefefe;
+        }
+
+        h1, h2{
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .box{
+            border: solid 2px;
+            background-color: rgb(37, 213, 213);
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+            margin-top: 50px;
+        }
+
+        #marup{
+            margin-top: 25px;
+        }
+
+        .btn1{
+            width: 120px;
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button{
+            background-color: white;
+            border: 2px solid rgb(15, 160, 160);
+            text-align: center;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 4px 2px;
+        }
+
+        .button:hover{
+            transition-duration: 0.5s;
+            background-color: rgb(15, 160, 160);
+            color: white;
+        }
+
+        #resc{
+            text-align: center;
+            font-size: 2rem;
+        }
+        
+        fieldset{
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        #linha{
+            margin-top: 40px;
+        }
+
+        h2{
+            margin-top: 5px;
+        }  
+
+        .inv{
+            display: none;
+        }
+
+        .vis{
+            display: block;
+        }
+
+        #setavoltar{
+            height: 50px;
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+
+        #setavoltar, #lupa, #lupaApagar:hover{
+            cursor: pointer;
+        }
+
+        #lupa{
+            height: 50px;
+            margin-right: 50px;
+            margin-top: 50px;
+            margin-left: auto;
+        }
+
+        #hdrhis{
+            display: flex;
+        }
+
+        #cxtxt{
+            height: 30px;
+            width: 250px;
+        }
+
+        #pesquisa{
+            margin-left: auto;
+            margin-right: 10px;
+            margin-top: 50px;
+        }
+
+        #btnpsq{
+            height: 30px;
+            margin: auto;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        .botaoc{
+            text-align: center;
+        }
+
+        #iptapagar{
+            background-color: rgb(15, 160, 160);
+            width: 400px;
+            border: solid 1px;
+            border-radius: 10px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        #iptapg{
+            width: 365px;
+            height: 20px;
+        }
+
+        #lupaApagar{
+            align-items: center;
+            height: 17.5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="inicio" class="vis">
+        <div class="box">
+            <h1>Conversor de temperaturas</h1>
+        </div>
+
+        <div class="btn1">
+            <button class="button" onclick="historico()">
+                Histórico
+            </button>
+        </div>
+
+        <fieldset>
+            <legend>
+                Você deseja converter de Kelvin para Celsius ou de Celsius para Kevin?
+            </legend>
+            <form>
+                <p><input type="radio" name="escolher" id="opc1">Kelvin para Celsius</p>
+                <p><input type="radio" name="escolher" id="opc2">Celsius para Kelvin</p>
+            </form>
+        </fieldset>
+        <fieldset id="marup">
+            <legend>Insira o valor que deseja converter:</legend>
+            <p><input type="number" name="num" id="num1"></p>
+        </fieldset>
+        <div class="btn1">
+            <button class="button" onclick="calcular(), salvar()">
+                Calcular
+            </button>
+        </div>
+        <div id="linha">
+
+        </div>
+        <div>
+            <h2 id="rest"></h2>
+            <p id="resc"></p>
+        </div>
+    </div>
+
+    <div id="historico" class="inv">
+        <header id="hdrhis">
+            <img src="img/pngfind.com-double-arrow-png-3161853.png" alt="" id="setavoltar" onclick="inicio()">
+            <div id="pesquisa" class="inv">
+                <input type="search" name="" id="cxtxt" placeholder="Digite o resultado da conversão">
+                <button id="btnpsq" onclick="buscar(cxtxt.value), mostrarhist()">
+                    Pesquisar
+                </button>
+            </div>
+            <img src="img/pngegg.png" alt="" id="lupa" onclick="caixatexto()">
+        </header>
+
+        <div class="box">
+            <h1>Histórico de Conversões</h1>
+        </div>
+
+        <div class="botaoc">
+            <button class="button" onclick="abrireditar()">
+                Editar item do histórico
+            </button> <br>
+        </div>
+        <div class="inv" id="ipteditar">
+            <input type="number" name="" id="iptedt" placeholder="Digite o resultado da conversão que deseja editar">
+            <img src="img/pngegg.png" id="lupaApagar" alt="" onclick="editar(iptedt.value)">
+            <p id="contaE"></p>
+            <div id="formE" class="inv">
+                <p><input type="text" id="valorE"></p>
+                <p><button onclick="editar(2)">Editar</button></p>
+            </div>
+        </div>
+
+        <div class="botaoc">
+            <button class="button" onclick="apagarA()">
+                Apagar item do histórico
+            </button> <br>
+        </div>
+        <div class="inv" id="iptapagar">
+            <input type="number" name="" id="iptapg" placeholder="Digite o resultado da conversão que deseja apagar">
+            <img src="img/pngegg.png" id="lupaApagar" alt="" onclick="apagar(iptapg.value)">
+            <p id="contaA"></p>
+        </div>
+
+        <div class="botaoc">
+            <button class="button" onclick="mostrarTodos(), mostrarhist()">
+                Histórico Completo
+            </button>
+        </div>
+
+        <div id="txtdiv" class="inv">
+            <h2>Histórico</h2>
+            <p id="texto"></p>
+        </div>
+
+    </div>
+
+    <script>
+        var val = document.getElementById("num1");
+        var tot;
+        var escolher = document.getElementsByName('escolher')
+        var linha = document.getElementById('linha')
+        var rest = document.getElementById('rest')
+        var resc = document.getElementById('resc')
+
+        function kpc(){
+            if(val.value <= 373.15 && val.value >= 0){
+                tot = Number(val.value) - 273.15
+                linha.innerHTML = `<hr>`
+                rest.innerHTML = 'Resultado'
+                resc.innerHTML = `${(val.value).replace('.', ',')}K = ${(tot.toFixed(2)).replace('.', ',')}ºC`
+            }else{
+                alert('Valor selecionado inválido.')
+            }
+        }
+        function cpk(){
+            if(val.value >= -273.15){
+                tot = Number(val.value) + 273.15
+                rest.innerHTML = 'Resultado'
+                resc.innerHTML = `${(val.value).replace('.', ',')}ºC = ${(tot.toFixed(2)).replace('.', ',')}K`
+            }else{
+                alert('Valor selecionado inválido.')
+            }
+        }
+        function calcular(){
+            if(escolher[0].checked){
+                kpc()
+            }else if(escolher[1].checked){
+                cpk()
+            }else{
+                alert('Você não escolheu qual conversão deseja fazer.')
+            }
+        }
+
+        function historico(){
+            document.getElementById('historico').className = "vis";
+            document.getElementById('inicio').className = "inv";
+        }
+
+        function inicio(){
+            document.getElementById('inicio').className = "vis";
+            document.getElementById('historico').className = "inv";
+        }
+
+        function caixatexto(){
+            document.getElementById('pesquisa').className = "vis";
+        }
+
+        function mostrarhist(){
+            document.getElementById('txtdiv').className = "vis"
+        }
+
+        function apagarA(){
+            document.getElementById('iptapagar').className = "vis"
+        }
+
+        function apagarM(){
+            document.getElementById('iptapagar').className = "inv"
+        }
+
+        let ls = {
+            salvar: (colecao, obj) => {
+                let colecaoLS = localStorage.getItem(colecao) ? JSON.parse(localStorage.getItem(colecao)) : [];
+
+                colecaoLS.push(obj);
+                localStorage.setItem(colecao, JSON.stringify(colecaoLS));
+            },
+            listar: colecao => JSON.parse(localStorage.getItem(colecao))
+        }
+
+        var escolher1, escolher2, sbl1, sbl2;
+
+        function salvar(){
+            if(escolher[0].checked){
+                escolher1 = 'K'
+                escolher2 = 'ºC'
+            }else{
+                escolher1 = 'ºC'
+                escolher2 = 'K'
+            }
+            ls.salvar('historico', {
+                valor: document.getElementById('num1').value,
+                sbl1: escolher1,
+                sbl2: escolher2,
+                resultado: tot
+            })
+            
+            document.getElementById('num1').value = '';
+            escolher1.value = '';
+            escolher2.value = '';
+            tot.value = '';
+        }
+
+        function buscar(res){
+            let flag = true;
+            let conta = ls.listar('historico') || [];
+            let text = document.getElementById("texto")
+            text.innerHTML = '';
+
+            if(conta.length == 0){
+                text.innerHTML = "<h1>Histórico Vazio</h1>"
+            }else{
+                conta.forEach(obj => {
+                    if(obj.resultado == res){
+                        flag = false;
+                        text.innerHTML = `${obj.valor}${obj.sbl1} = ${obj.resultado}${obj.sbl2}
+                        <hr>`
+                    }
+                });
+                if(flag){
+                    text.innerHTML = "<h1>Conversão não encontrada!</h1>"
+                }
+            }
+
+        }
+
+        function mostrarTodos(){
+            let conta = ls.listar('historico') || [];
+            let text = document.getElementById('texto');    
+            text.innerHTML = "";
+            if(conta.length == 0){
+                text.innerHTML = "<h1>Histórico Vazio!</h1>"
+            }else{
+                conta.forEach(obj => {
+                    text.innerHTML += `${obj.valor}${obj.sbl1} = ${obj.resultado}${obj.sbl2}
+                    <hr>`
+                })
+            }
+        }
+
+        function apagar(res){
+            let resposta = false;
+            let flag = false;
+            let posicao;
+            let conta = ls.listar('historico') || []
+            let text = document.getElementById('contaA');
+            text.innerHTML = "";
+
+            if(conta.length == 0){
+                text.innerHTML = "<h1>Histórico vazio!</h1>"
+            }else{
+                conta.forEach((obj, indice) => {
+                    if(obj.resultado == res){
+                        flag = true
+                        posicao = indice
+                    }
+                });
+                if(flag){
+                    resposta = confirm(`Deletar a conversão de resultado ${conta[posicao].resultado}?`) 
+                    if(resposta){
+                        conta.splice(posicao,1);
+                        localStorage.setItem("historico", JSON.stringify(conta));
+                        alert("Conta removida com sucesso!")
+                        apagarM()
+                    }
+                    
+                }else{
+                    text.innerHTML = "<h1>Conta não encontrada!</h1>"
+                    }
+            }
+
+
+        }
+
+        var posicao_editar=-1;
+
+        function editar(op,res){
+            if(op == "1"){
+                let flag = true; 
+                let conta = ls.listar('historico') || [];
+                let text = document.getElementById("resultadoE");
+                text.innerHTML = ""; 
+                
+                if(conta.length == 0){
+                    text.innerHTML = "<h1>Histórico vazio!</h1>"; 
+                }else{
+                    contato.forEach((obj,indice) => {
+                        if(obj.resultado == res){
+                            flag = false;
+                            posicao_editar = indice;
+                            document.getElementById("formE").className = "vis";
+                            valorE.value = obj.valor;
+                        }
+                    });
+                    
+                    if(flag){
+                        text.innerHTML = "<h1>Conversão não encontrada!</h1>"; 
+                    }
+                }
+            }else{
+                let conta = ls.listar('historico') || [];
+                conta[posicao_editar].valor = valorE.value;
+
+                localStorage.setItem("historico", JSON.stringify(conta));
+                alert("Atualização realizada com sucesso!");
+            }
+        }
+
+        function abrireditar(){
+            document.getElementById('ipteditar').className = "vis"
+        }
+
+    </script>
+</body>
+</html>

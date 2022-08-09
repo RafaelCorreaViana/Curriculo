@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Scada:ital,wght@0,400;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Scheherazade:wght@400;700&display=swap');
+
+     html{
+            height: 700px;
+            width: 100%;
+        }
+
+        
+        body{
+            margin: 0;
+        }
+        header{
+            background: linear-gradient(90deg, rgba(171, 202, 243, 0.67) 13.54%, rgba(255, 182, 193, 0.85) 96.35%);
+            height: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        input{
+            margin-left: -20px;
+            margin-top: 15px;
+            width: 108px;
+            height: 21px;
+            left: 15px;
+            top: 13px;
+
+            background: #A2C2EC;
+            border-radius: 10px;
+            
+        }
+
+
+        #destaque{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #imgpolvo{
+            margin: 0 auto;
+            height: 325px;
+            width: 325px;
+        }
+
+        h1{
+            font-family: 'Kreon', serif;
+            text-align: center;
+            font-size: 24px;
+            line-height: 30px;
+            color: #FF1192;
+
+        }
+
+        #buscar{
+            margin-left: 20px;
+            border: 0 none;
+            outline: 0;
+        }
+
+        .produtocomprado{
+            display: flex;
+            margin: 0 auto;
+            width: 80%;
+            border: solid #ABCAF3;
+            flex: 1 1 1;
+            height: 125px;
+
+            margin-top: 10px;
+        }
+
+        .produto{
+            display: flex;
+            margin: 0 auto;
+            width: 80%;
+            border: solid #FFB6C1;
+            flex: 1 1 1;
+            height: 125px;
+
+            margin-top: 10px;
+        }
+
+        h2{
+            margin-top: 13px;
+            font-family: 'Scada', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .preco{
+            margin-top: -15px;
+            font-family: 'Scheherazade', serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+
+        .heart{
+            margin-left: 100px;
+            margin-top: 13px;
+        }
+
+       .comprar{
+           margin-top: 40px;
+           margin-left: 30px;
+       }
+
+        #sacolaecoracao{
+            display: flex;
+            margin-top: 13.5px;
+        }
+
+        #coracao{
+            margin-top: 14px;
+            margin-left: 10px;
+        }
+
+        #sacola{
+            margin-top: 15px;
+            margin-left: 95px;
+        }
+
+        #logo{
+            margin-left: 80px;
+            margin-top: 8px;
+        }
+
+        #carros {
+            width: 115px;
+            height: 115px;
+        }
+
+        #stich {
+            width: 115px;
+            height: 115px;
+        }
+
+        #urso {
+            width: 115px;
+            height: 115px;
+        }
+
+        .quantia{
+            margin-top: 10px;
+        }
+
+        #imagens{
+            height: 22px;
+        }
+
+        #linha{
+            margin-top: -20px;
+            margin-bottom: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(171, 202, 243, 0.67);
+            height: 3px;
+            width: 325px;
+        }
+    </style>
+    <header>
+            <div>
+                <input type="search" name="" id="buscar" placeholder= "Buscar">
+            </div>
+            <div>
+                <img src="img/logozinha2.png" id="logo" alt="">
+            </div>
+            <div>
+                <img src="img/sacola.png" id="sacola" alt="">
+            </div>
+            <div>
+                <img src="img/coracao.png" id="coracao" alt="">
+            </div>
+    </header>
+    <section>
+        <div id="destaque">
+            <img id="imgpolvo" src="img/polvo do humor.png" alt="">
+           <h1>EM DESTAQUE!</h1> 
+        </div>
+        <p id="linha">.</p>
+    </section>
+    <section id="produtos">
+        <div class="produtocomprado">
+            <img src="img/stich.png" id="stich" alt="">
+            <div>
+                <h2>Stich Pelúcia</h2>
+                <p class="preco">Preço: R$50,00</p>
+                <div imagens>
+                    <img class="star" src="img/estrelinhas.png" alt="">
+                </div>
+            </div>
+            <div class="quantia">
+                <img class="heart" src="img/heart.png" alt="">
+                <img class="comprar" src="img/comprar.png" alt="">
+            </div>
+        </div>
+        <div class="produto">
+            <img src="img/teddy.jpg" id="urso" alt="">
+            <div>
+                <h2>Ursão Pelúcia</h2>
+                <p class="preco">Preço: R$50,00</p>
+                <img class="star" src="img/estrelinhas.png" alt="">
+            </div>
+            <div class="quantia">
+                <img class="heart" src="img/heart.png" alt="">
+                <img class="comprar" src="img/comprar.png" alt="">
+            </div>
+        </div>
+        <div class="produto">
+            <img src="img/carros.jpg" id="carros" alt="">
+            <div>
+                <h2>McQueen Pelúcia</h2>
+                <p class="preco">Preço: R$185,00</p>
+                <img class="star" src="img/estrelinhas.png" alt="">
+            </div>
+            <div class="quantia">
+                <img class="heart" src="img/heart.png" alt="">
+                <img class="comprar" src="img/comprar.png" alt="">
+            </div>
+        </div>
+    </section>
+</body>
+</html>
